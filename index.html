@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,9 +100,125 @@
     <div class="book">
         <h1 style="color: rgb(222, 32, 171);  font-weight: 400; text-align: center;"><br><br><br></h1>
         <div class="cover">
-            <!-- <p> This is your Life!!</p> -->
         </div>
     </div>
 </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/golden-black-birthday-shiny-balloons-background_1017-36188.jpg?ga=GA1.1.513828947.1716750042&semt=ais_hybrid");
+            background-size: contain;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            margin-top: -60px;
+        }
+        .book {
+            position: relative;
+            border-radius: 10px;
+            width: 280px;
+            height: 400px;
+            background-image: url(stuti.jpg);
+            background-size: 97%;
+            background-position: center;
+            box-shadow: 1px 1px 12px #000;
+            transform: preserve-3d;
+            perspective: 2000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cover {
+            top: 0;
+            position: absolute;
+            background-color: #4158D0;
+            background-image: url("https://github.com/rajkumar963/Birthday/blob/main/birthday1.jpg?raw=true");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.5s;
+            transform-origin: 0;
+            box-shadow: 1px 1px 12px #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book:hover .cover {
+            transition: all 1s;
+            transform: rotatey(-95deg);
+        }
+        .head {
+            font-size: 35px;
+            text-align: center;
+            font-weight: 700;
+            color: rgb(243, 13, 13);
+        }
+        #musicToggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="birthdayMusic" loop autoplay>
+        <source src="a-birthday-to-remember-201324.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <button id="musicToggle">🔊</button>
+
+    <p class="head">Birthday Card!!</p>
+    <div id="container">
+        <div class="book">
+            <h1 style="color: rgb(222, 32, 171);  font-weight: 400; text-align: center;"><br><br><br></h1>
+            <div class="cover">
+                <!-- <p> This is your Life!!</p> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function attemptPlay() {
+            var audio = document.getElementById('birthdayMusic');
+            audio.muted = false;
+            audio.play().then(() => {
+                console.log('Audio started playing');
+            }).catch((error) => {
+                console.log('Autoplay was prevented:', error);
+            });
+        }
+
+        // Try to play as soon as possible
+        attemptPlay();
+
+        // Attempt to play again when the document is fully loaded
+        window.addEventListener('load', attemptPlay);
+
+        // Attempt to play on the first user interaction
+        document.body.addEventListener('click', attemptPlay, { once: true });
+        document.body.addEventListener('touchstart', attemptPlay, { once: true });
+    </script>
 </body>
 </html>
